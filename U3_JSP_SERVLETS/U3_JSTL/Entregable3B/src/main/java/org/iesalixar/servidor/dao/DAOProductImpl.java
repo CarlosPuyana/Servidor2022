@@ -92,48 +92,50 @@ public class DAOProductImpl implements DAOProduct {
 
 		return product;
 	}
-
+	
 	@Override
 	public List<Product> getAllProducts() {
+
+		 System.out.println("Vale");
 		
-		ArrayList<Product> productList = new ArrayList<>();
-		Product product;
-		
-		
-		try {
-			
-			String sql = "select * from products";
-			
-			PreparedStatement statement = ConexionBD.getConnection().prepareStatement(sql);
-			
-			ResultSet rs = statement.executeQuery();
-			
-			while (rs.next()) {
-				product = new Product();
-				
-				product.setProductName(rs.getString("productName"));
-				product.setProductCode(rs.getString("productCode"));
-				product.setProductLine(rs.getString("productLine"));
-				product.setProductScale(rs.getNString("productScale"));
-				product.setProductVendor(rs.getString("productVendor"));
-				product.setProductDescription(rs.getString("productDescription"));
-				product.setQuantityInStock(rs.getInt("quantityInStock"));
-				product.setBuyPrice(rs.getDouble("buyPrice"));
-				product.setMSRP(rs.getDouble("MSRP"));
-				
-				productList.add(product);
-				
-				
-			}
-			
-			
-			
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
-		}
-		
-		System.out.println("Hecho");
-		return productList;
+		ArrayList <Product> productList = new ArrayList<>();
+        Product product;
+
+        try {
+        	 System.out.println("Valex2");
+
+            String sql = "select * from products";
+            PreparedStatement statement = ConexionBD.getConnection().prepareStatement(sql);
+
+            ResultSet rs = statement.executeQuery();
+            
+           
+
+            while (rs.next()) {
+
+                product = new Product();
+
+                product.setProductName(rs.getString("productCode"));
+                product.setProductCode(rs.getString("productName"));
+                product.setProductLine(rs.getString("productLine"));
+//                product.setProductScale(rs.getNString("productScale"));
+//                product.setProductVendor(rs.getString("productVendor"));
+//                product.setProductDescription(rs.getString("productDescription"));
+                product.setQuantityInStock(rs.getInt("quantityInStock"));
+                product.setBuyPrice(rs.getDouble("buyPrice"));
+//                product.setMSRP(rs.getDouble("MSRP"));
+                
+                productList.add(product);
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            ConexionBD.close();
+        }
+
+        return productList;
 	}
 
 }

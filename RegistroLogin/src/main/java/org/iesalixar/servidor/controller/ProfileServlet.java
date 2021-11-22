@@ -39,18 +39,20 @@ public class ProfileServlet extends HttpServlet {
 		DAOProductImpl dao = new DAOProductImpl();
 
 		Cookie[] cookies = request.getCookies();
+		ArrayList<Product> listaCesta = new ArrayList<Product>();
 
 		for (Cookie c : cookies) {
 
 			if (c.getName().equals("cesta")) {
 				
 				//Product producto = dao.getProducts(c.getValue());
-				ArrayList<Product> listaCesta = new ArrayList<Product>();
+				
 				listaCesta.add(dao.getProducts(c.getValue()));
 						
-				request.setAttribute("cesta", listaCesta);
 			}
 		}
+		
+		request.setAttribute("cesta", listaCesta);
 
 		request.getRequestDispatcher("WEB-INF/view/profile.jsp").forward(request, response);
 	}

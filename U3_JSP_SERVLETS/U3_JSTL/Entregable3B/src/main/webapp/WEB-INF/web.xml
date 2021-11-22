@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Entregable3B</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <session-config> 
+      <session-timeout>5</session-timeout> 
+  </session-config>
+  
+  <servlet>
+  	<servlet-name>Inicio</servlet-name>
+  	<servlet-class>org.iesalixar.servidor.controller.InicioServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Oficinas</servlet-name>
+  	<servlet-class>org.iesalixar.servidor.controller.OficinaServlet</servlet-class>
+  </servlet>
+  
+   <servlet>
+  	<servlet-name>AdminInicio</servlet-name>
+  	<servlet-class>org.iesalixar.servidor.controller.AdminInicioServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LogOutServlet</servlet-class>
+	</servlet>
+	
+	  <servlet>
+		<servlet-name>EditarProduct</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.EditarProductServlet</servlet-class>
+	</servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Inicio</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Oficinas</servlet-name>
+  	<url-pattern>/Oficinas</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+  	<servlet-name>AdminInicio</servlet-name>
+  	<url-pattern>/Admin/Inicio</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/LogOut</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>EditarProduct</servlet-name>
+		<url-pattern>/Admin/EditarProduct</url-pattern>
+	</servlet-mapping>
+  
+</web-app>
