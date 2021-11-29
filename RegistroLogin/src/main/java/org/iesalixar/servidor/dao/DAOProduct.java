@@ -15,4 +15,6 @@ public interface DAOProduct {
 	
 	public List<Product> getAllProducts();
 	
+	public Product getProductByCode(int code);
+	
 }

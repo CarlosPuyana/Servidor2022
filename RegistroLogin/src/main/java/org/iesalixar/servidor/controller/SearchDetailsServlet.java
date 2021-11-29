@@ -56,6 +56,7 @@ public class SearchDetailsServlet extends HttpServlet {
 
 		request.setAttribute("producto", dao.getProduct(productName));
 		
+		
 		Cookie cesta = new Cookie("cesta", productCode);
 		response.addCookie(cesta);
 		

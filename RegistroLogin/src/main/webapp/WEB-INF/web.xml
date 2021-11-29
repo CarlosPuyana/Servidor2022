@@ -58,6 +58,16 @@
 		<servlet-class>org.iesalixar.servidor.controller.ProfileServlet</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>Orders</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.ShowOrders</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>OrderDetails</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.OrderDetails</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>Main</servlet-name>
 		<url-pattern>/</url-pattern>
@@ -101,7 +111,17 @@
 	<servlet-mapping>
 		<servlet-name>Profile</servlet-name>
 		<url-pattern>/Profile</url-pattern>
-	</servlet-mapping>		
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Orders</servlet-name>
+		<url-pattern>/Admin/Orders</url-pattern>
+	</servlet-mapping>			
+	
+	<servlet-mapping>
+		<servlet-name>OrderDetails</servlet-name>
+		<url-pattern>/Admin/Details</url-pattern>
+	</servlet-mapping>
 		
 	
 	<servlet-mapping>
@@ -125,7 +145,7 @@
 		<filter-name>AdminFilter</filter-name>
 		<servlet-name>UpdatePayment</servlet-name>
 		<servlet-name>AddPayment</servlet-name>
-		<servlet-name>AdminMain</servlet-name>	
+		<servlet-name>AdminMain</servlet-name>
 		
 	</filter-mapping>	
 	

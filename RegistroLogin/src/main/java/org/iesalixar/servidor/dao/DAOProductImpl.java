@@ -136,4 +136,44 @@ public class DAOProductImpl implements DAOProduct {
 		return productList;
 	}
 
+	@Override
+	public Product getProductByCode(int code) {
+		Product product = null;
+
+		try {
+
+			String sql = "select * from products where  productCode=?";
+			PreparedStatement statement = ConexionBD.getConnection().prepareStatement(sql);
+			statement.setInt(1, code);
+
+			ResultSet rs = statement.executeQuery();
+
+			// Como el campo de búsqueda es la clave solo debería obtener un resultado
+			// si no es así estaremos machacando cada vez el valor de customer y
+			while (rs.next()) {
+
+				product = new Product();
+				product.setProductName(rs.getString("productName"));
+				product.setProductCode(rs.getString("productCode"));
+				product.setProductLine(rs.getString("productLine"));
+				product.setProductScale(rs.getString("productScale"));
+				product.setProductVendor(rs.getString("productVendor"));
+				product.setProductDescription(rs.getString("productDescription"));
+				product.setQuantityInStock(rs.getInt("quantityInStock"));
+				product.setBuyPrice(rs.getDouble("buyPrice"));
+				product.setMSRP(rs.getDouble("MSRP"));
+
+			}
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			ConexionBD.close();
+		}
+
+		return product;
+
+
 }
+}
+
