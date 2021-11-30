@@ -28,6 +28,7 @@
                             <th>Country</th>
                             <th>PostalCode</th>
                             <th>Territory</th>
+                            <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +43,7 @@
                                 <td>${ofi.country}</td>
                                 <td>${ofi.postalCode}</td>
                                 <td>${ofi.territory}</td>
+                                <td><a href="Empleados?codigo=${ofi.officeCode}"><i class="bi bi-people-fill"></i></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
