@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.iesalixar.servidor.dao.DAOEmployeeImpl;
+import org.iesalixar.servidor.dao.DAOOfficeImpl;
 import org.iesalixar.servidor.model.Employee;
 
 /**
@@ -32,8 +33,11 @@ public class EmployeeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		DAOEmployeeImpl dao = new DAOEmployeeImpl();
+		DAOOfficeImpl daoOff = new DAOOfficeImpl();
 		
 		ArrayList<Employee> listaEmpleados = (ArrayList) dao.getAllEmployeesFromOffice(request.getParameter("codigo"));
+		
+		request.setAttribute("oficina", daoOff.getOffice(request.getParameter("codigo")));
 		
 		request.setAttribute("employees", listaEmpleados);
 		

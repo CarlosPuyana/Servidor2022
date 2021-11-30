@@ -33,9 +33,7 @@ public class OfficeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DAOOfficeImpl daoImpl = new DAOOfficeImpl();
 
-        ArrayList<Offices> listaOficinas = (ArrayList) daoImpl.getAllOffices();
-        
-        System.out.println(listaOficinas + "jeje");
+        ArrayList<Offices> listaOficinas = (ArrayList) daoImpl.getAllOffices();	
 
         request.setAttribute("oficinas", listaOficinas);
 
