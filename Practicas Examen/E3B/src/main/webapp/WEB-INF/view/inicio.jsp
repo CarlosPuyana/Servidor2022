@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="include/bootstrap.jsp"/>
+<fmt:setBundle basename="interface" />
 <title>Main </title>
 </head>
 <body>
@@ -18,16 +19,16 @@
 			<!-- Solo saco el formulario de login si no tengo sesion -->
 			<c:if test="${sessionScope.usuario==null}">
 				<form method="post">
-					<label for="usuario" class="form-label">Usuario</label>
+					<label for="usuario" class="form-label"><fmt:message key="user"/></label>
     				<input type="text" class="form-control" id="usuario" name="usuario" required >	
-    				<label for="password" class="form-label mt-3">Password</label>
+    				<label for="password" class="form-label mt-3"><fmt:message key="password" /></label>
     				<input type="password" class="form-control" id="password" name="password" required>
     				<c:if test="${error!=null}">
     					<p class="text-danget text-small mt-3">${error}</p>
     				</c:if>
-    				<input type="submit" class="btn btn-primary w-100 mt-3" value="ENTRAR" />
+    				<input type="submit" class="btn btn-primary w-100 mt-3" value="<fmt:message key="enter"/>" />
 				</form>
-				<p class="text-primary text-center mt-3"><a href="Register">¿No tienes cuenta?. Regístrate</a></p>
+				<p class="text-primary text-center mt-3"><a href="Register"><fmt:message key="register" /></a></p>
 			</c:if>
 			<c:if test="${sessionScope.usuario != null}">
 				

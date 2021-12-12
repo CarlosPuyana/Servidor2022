@@ -1,2 +1,5 @@
 /org/
 /log4j.properties
+/interface_es.properties
+/interface.properties
+/interface_fr.properties
