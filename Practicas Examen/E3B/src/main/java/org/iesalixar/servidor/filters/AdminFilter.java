@@ -1,4 +1,4 @@
-package org.iesalixar.servidor.filter;
+package org.iesalixar.servidor.filters;
 
 import java.io.IOException;
 
@@ -8,20 +8,19 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class FiltroAdmin
+ * Servlet Filter implementation class AdminFilter
  */
-public class FiltroAdmin implements Filter {
+public class AdminFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public FiltroAdmin() {
+    public AdminFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -36,20 +35,20 @@ public class FiltroAdmin implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
+
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
-		HttpServletResponse httpResponse = (HttpServletResponse) response;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-		HttpSession sesion = httpRequest.getSession();
-		String usuario = (String) sesion.getAttribute("usuario");
-		String role = (String) sesion.getAttribute("rol");
+        HttpSession sesion = httpRequest.getSession();
 
-		if (!sesion.isNew() && usuario != null && role.equals("admin")) {
-			chain.doFilter(request, response);
-		} else {
-			httpResponse.sendRedirect(httpRequest.getContextPath());
-		}	
-		
+        String usuario = (String) sesion.getAttribute("usuario");
+        String role = (String) sesion.getAttribute("rol");
+
+        if (!sesion.isNew() && usuario!=null && role.equals("admin")) {
+        	chain.doFilter(request, response);
+        } else {
+  		  httpResponse.sendRedirect(httpRequest.getContextPath());
+  		}
 	}
 
 	/**

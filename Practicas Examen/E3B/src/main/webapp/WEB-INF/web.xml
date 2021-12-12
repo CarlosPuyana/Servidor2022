@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>E3B</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+
+	<servlet>
+		<servlet-name>InicioServlet</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.InicioServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OficinaServlet</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.OficinaServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AdminInicioServlet</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.AdminInicioServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>EditarProductServlet</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.EditarProductServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.LogOutServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.RegisterServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InicioServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>OficinaServlet</servlet-name>
+		<url-pattern>/Oficinas</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AdminInicioServlet</servlet-name>
+		<url-pattern>/Admin/Inicio</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EditarProductServlet</servlet-name>
+		<url-pattern>/Admin/EditarProduct</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/LogOut</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/Register</url-pattern>
+	</servlet-mapping>
+	
+	
+	<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>org.iesalixar.servidor.filters.AdminFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>UserFilter</filter-name>
+		<filter-class>org.iesalixar.servidor.filters.UserFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<servlet-name>EditarProductoServlet</servlet-name>
+		<url-pattern>/Admin/EditarProduct</url-pattern>
+		<servlet-name>AdminInicioServlet</servlet-name>
+		<url-pattern>/Admin/Inicio</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserFilter</filter-name>
+		<url-pattern>/Oficinas</url-pattern>
+	</filter-mapping>
+
+
+</web-app>

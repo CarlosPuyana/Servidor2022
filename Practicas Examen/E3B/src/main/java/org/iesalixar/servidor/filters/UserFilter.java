@@ -1,6 +1,7 @@
-package org.iesalixar.servidor.filter;
+package org.iesalixar.servidor.filters;
 
 import java.io.IOException;
+
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,16 +13,19 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class FiltroAdmin
+ * Servlet Filter implementation class UserFilter
  */
-public class FiltroAdmin implements Filter {
+public class UserFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public FiltroAdmin() {
+    public UserFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -36,7 +40,6 @@ public class FiltroAdmin implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 
@@ -44,12 +47,11 @@ public class FiltroAdmin implements Filter {
 		String usuario = (String) sesion.getAttribute("usuario");
 		String role = (String) sesion.getAttribute("rol");
 
-		if (!sesion.isNew() && usuario != null && role.equals("admin")) {
+		if (!sesion.isNew() && usuario != null && role.equals("user")) {
 			chain.doFilter(request, response);
 		} else {
 			httpResponse.sendRedirect(httpRequest.getContextPath());
 		}	
-		
 	}
 
 	/**
