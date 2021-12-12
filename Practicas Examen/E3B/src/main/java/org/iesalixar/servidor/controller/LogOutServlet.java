@@ -8,11 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class LogOutServlet
  */
 public class LogOutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(LogOutServlet.class);
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,6 +33,8 @@ public class LogOutServlet extends HttpServlet {
 		HttpSession sesion = request.getSession();
 
 		sesion.invalidate();
+		
+		logger.log(Level.INFO, "Usuario desconectado");
 
 		response.sendRedirect(request.getContextPath());
 	}

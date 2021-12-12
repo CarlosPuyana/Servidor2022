@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.iesalixar.servidor.dao.DAOProductImpl;
 import org.iesalixar.servidor.model.Product;
 
@@ -18,6 +20,7 @@ import org.iesalixar.servidor.model.Product;
 @WebServlet("/EditarProductServlet")
 public class EditarProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(InicioServlet.class);
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -76,6 +79,8 @@ public class EditarProductServlet extends HttpServlet {
 		product.setBuyPrice(buyPrice);
 		
 		dao.updateProduct(product);
+		
+		logger.log(Level.INFO, "Producto " + product.getProductCode() + "/" + product.getProductName() + " editado");
 		
 		response.sendRedirect(request.getContextPath() + "/Admin/Inicio");
 		

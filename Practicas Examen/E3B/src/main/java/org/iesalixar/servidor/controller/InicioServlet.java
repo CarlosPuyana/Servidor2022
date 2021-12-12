@@ -80,7 +80,7 @@ public class InicioServlet extends HttpServlet {
 				} else {
 					request.setAttribute("errorLogin", "Invalid login");
 
-					logger.log(Level.INFO, "Credenciales erroneas");
+					logger.log(Level.WARN, "Credenciales erroneas");
 					
 					doGet(request, response);
 
@@ -89,7 +89,7 @@ public class InicioServlet extends HttpServlet {
 			} else {
 				request.setAttribute("errorLogin", "Usuario no existente");
 				
-				logger.log(Level.INFO, "Usuario no existente");
+				logger.log(Level.WARN, "Usuario no existente");
 
 				doGet(request, response);
 
