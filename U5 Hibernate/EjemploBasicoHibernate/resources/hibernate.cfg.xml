@@ -13,6 +13,8 @@
 		<!-- MAPEOS -->
 		<mapping class="org.iesalixar.servidor.model.ProductLine" />
 		<mapping class="org.iesalixar.servidor.model.Product" />
+		<mapping class="org.iesalixar.servidor.model.Offices" />
+		<mapping class="org.iesalixar.servidor.model.Employees" />
 		
 	</session-factory>
 </hibernate-configuration>

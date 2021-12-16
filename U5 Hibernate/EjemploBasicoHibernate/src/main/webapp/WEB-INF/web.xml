@@ -15,8 +15,29 @@
   	<servlet-class>org.iesalixar.servidor.controller.CategoriasServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>Oficinas</servlet-name>
+  	<servlet-class>org.iesalixar.servidor.controller.EmpleadosOficinasServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Empleados</servlet-name>
+  	<servlet-class>org.iesalixar.servidor.controller.EmpleadosServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>Categorias</servlet-name>
   	<url-pattern>/Categorias</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Oficinas</servlet-name>
+  	<url-pattern>/Oficinas</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Empleados</servlet-name>
+  	<url-pattern>/Empleados</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

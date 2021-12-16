@@ -65,4 +65,15 @@ public class ProductLine implements Serializable {
 		this.htmlDescription = htmlDescription;
 	}
 
+	public List<Product> getProductsList() {
+		return productsList;
+	}
+
+	public void setProductsList(List<Product> productsList) {
+		this.productsList = productsList;
+	}
+
+	
+	
+	
 }
