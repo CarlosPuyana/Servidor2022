@@ -15,6 +15,9 @@
 		<mapping class="org.iesalixar.servidor.model.Product" />
 		<mapping class="org.iesalixar.servidor.model.Offices" />
 		<mapping class="org.iesalixar.servidor.model.Employees" />
+		<mapping class="org.iesalixar.servidor.model.Customers" />
+		<mapping class="org.iesalixar.servidor.model.Orders" />
+		<mapping class="org.iesalixar.servidor.model.Payments" />
 		
 	</session-factory>
 </hibernate-configuration>

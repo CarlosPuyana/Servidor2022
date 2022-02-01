@@ -7,5 +7,5 @@ import org.iesalixar.servidor.model.Offices;
 
 public interface OfficesDAO {
 	public List<Offices> getAllOffices();
-	public Offices getEmployeesFromCity(String ciudad);
+	public Offices getEmployeesByCity(String ciudad);
 }

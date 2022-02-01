@@ -25,6 +25,21 @@
   	<servlet-class>org.iesalixar.servidor.controller.EmpleadosServlet</servlet-class>
   </servlet>
   
+  <servlet>
+		<servlet-name>Customers</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.CustomersServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Orders</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.OrdersCustomersServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>Payments</servlet-name>
+		<servlet-class>org.iesalixar.servidor.controller.PaymentsCustomersServlet</servlet-class>
+	</servlet>
+  
   <servlet-mapping>
   	<servlet-name>Categorias</servlet-name>
   	<url-pattern>/Categorias</url-pattern>
@@ -39,5 +54,21 @@
   	<servlet-name>Empleados</servlet-name>
   	<url-pattern>/Empleados</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+		<servlet-name>Customers</servlet-name>
+		<url-pattern>/Customers</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Orders</servlet-name>
+		<url-pattern>/Orders</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Payments</servlet-name>
+		<url-pattern>/Payments</url-pattern>
+	</servlet-mapping>
+  
   
 </web-app>

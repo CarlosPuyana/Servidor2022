@@ -9,42 +9,41 @@ import org.iesalixar.servidor.model.Offices;
 
 public class OfficesDAOImpl implements OfficesDAO {
 
-	private Session session;
+private Session session;
 	
 	public OfficesDAOImpl() {
 		session = HibernateUtils.getSessionFactory().openSession();
 	}
 	
-	
 	@Override
 	public List<Offices> getAllOffices() {
-	
+		
 		if (!session.getTransaction().isActive()) {
 			session.getTransaction().begin();
 		}
 		
-		List<Offices> oficinas = session.createNativeQuery("select * from offices", Offices.class).list();
+		List<Offices> offices = session.createNativeQuery("select * from offices",
+				Offices.class).list();
 		
-		return oficinas;
-		
+		return offices;
 	}
 
-
 	@Override
-	public Offices getEmployeesFromCity(String ciudad) {
+	public Offices getEmployeesByCity(String city) {
 		
 		if (!session.getTransaction().isActive()) {
 			session.getTransaction().begin();
 		}
 		
-		List<Offices> empleados = session.createNativeQuery("Select * from offices where city='" + ciudad + "'", Offices.class).list();
+		List<Offices> employees = session.createNativeQuery("select * from offices where city='" +city + "'",Offices.class).list();
 		
-		Offices oficina = null;
-		if(empleados != null && empleados.size() > 0) {
-			oficina = empleados.get(0);
+		Offices employee = null;
+		if (employees!=null && employees.size()>0) {
+			employee = employees.get(0);
 		}
 		
-		return oficina;
+		return employee;
+		
 	}
 
 }
