@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/bootstrap::head(title='Profesores')"></head>
+<body>
+	<div class="container mt-5">
+		<div class="row mt-5 justify-content-center">
+			<header th:insert="fragments/parts::menu"></header>			
+			<div class="col-8">
+				<h4 class="text-center mt-3" th:text="'Profesores de:'+ ${depart.getNombre()}"></h4>
+				<table class="table table-stripped table-hover mt-5">
+					<thead class="table-light">
+					<tr>
+						<th>ID</th>
+						<th>NIF</th>
+						<th>Nombre</th>
+						<th>Primer Apellido</th>
+						<th>Segundo Apellido</th>
+						<th>Fecha de Nacimiento</th>
+						<th>Ciudad</th>
+						<th>Sexo</th>
+						<th></th>
+					</tr>
+					</thead>					
+					<tbody>
+					 <tr th:each="a : ${depart.getProfesores()}">
+					 	<td th:text="${a.getId()}"></td>
+					 	<td th:text="${a.getNif()}"></td>
+					 	<td th:text="${a.getNombre()}"></td>
+					 	<td th:text="${a.getApellido1()}"></td>
+					 	<td th:text="${a.getApellido2()}"></td>
+					 	<td th:text="${a.getFechaNacimiento()}"></td>
+					 	<td th:text="${a.getCiudad()}"></td>
+					 	<td th:text="${a.getSexo()}"></td>
+					 	<td> <a th:href="@{'/departments/profesores/delete?dpto='+${depart.getId()}+'&prof='+${a.getId()}}"><i class="bi bi-trash-fill"></i> </a>  </td>			 	
+					 </tr>					
+					</tbody>
+				</table>
+			</div></div>
+	</div>
+</body>
+</html>
